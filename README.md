@@ -2,7 +2,7 @@
 
 Simulador web interativo para controle de válvulas em plantas industriais, desenvolvido com foco em **instrumentação e automação industrial**. Esse projeto simula o funcionamento básico de um painel SCADA para controle remoto de válvulas e leitura de sensores em uma usina de açúcar.
 
-> 💻 **Projeto pessoal de Kaneki** | Estágio em Instrumentação e Automação Industrial na **Usina Coruripe**
+> 💻 **Projeto pessoal de Kaneki** | Estágiario em Instrumentação e Automação Industrial na **Usina Coruripe**
 
 ---
 
