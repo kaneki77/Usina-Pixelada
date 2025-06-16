@@ -1,0 +1,46 @@
+body {
+    background: #0f172a;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 20px;
+    background: #1e293b;
+}
+
+.valvulas {
+    margin: 20px 0;
+}
+
+.valvulas button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #334155;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.valvulas button.ativo {
+    background: #10b981;
+}
+
+.leituras {
+    margin: 20px auto;
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+footer {
+    padding: 10px;
+    background: #1e293b;
+    font-size: 0.8rem;
+}
