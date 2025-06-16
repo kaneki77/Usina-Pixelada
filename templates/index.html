@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Usina Pixelada - Controle de Válvulas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Usina Pixelada</h1>
+        <p>Simulador de Controle de Válvulas</p>
+    </header>
+
+    <main>
+        <div class="valvulas">
+            <button onclick="toggleValvula(this)">Válvula 1</button>
+            <button onclick="toggleValvula(this)">Válvula 2</button>
+            <button onclick="toggleValvula(this)">Válvula 3</button>
+        </div>
+
+        <div class="leituras">
+            <h2>Leituras em Tempo Real</h2>
+            <p>Temperatura: <span id="temperatura">--</span> °C</p>
+            <p>Pressão: <span id="pressao">--</span> bar</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Kaneki © 2025</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
