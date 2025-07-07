@@ -2,33 +2,125 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Usina Pixelada - Controle de Válvulas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Usina Pixelada - Simulador IoT 8-Bit</title>
+    <meta name="description" content="Simulador de usina industrial com interface retrô 8-bit">
+    <meta name="keywords" content="IoT, simulador, 8-bit, usina, industrial">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Usina Pixelada</h1>
-        <p>Simulador de Controle de Válvulas</p>
+        <h1>🎮 Usina Pixelada - Simulador IoT 8-Bit 🎮</h1>
     </header>
 
-    <main>
-        <div class="valvulas">
-            <button onclick="toggleValvula(this)">Válvula 1</button>
-            <button onclick="toggleValvula(this)">Válvula 2</button>
-            <button onclick="toggleValvula(this)">Válvula 3</button>
-        </div>
+    <!-- Container principal -->
+    <div class="container">
+        
+        <!-- Seção de Sensores -->
+        <section class="section">
+            <h2>🌡️ Temperatura</h2>
+            <div id="temperatura" class="sensor-value">-- °C</div>
+            <div class="sensor-info">
+                <small>Limite crítico: 110°C</small>
+            </div>
+        </section>
 
-        <div class="leituras">
-            <h2>Leituras em Tempo Real</h2>
-            <p>Temperatura: <span id="temperatura">--</span> °C</p>
-            <p>Pressão: <span id="pressao">--</span> bar</p>
-        </div>
-    </main>
+        <section class="section">
+            <h2>⏲️ Pressão</h2>
+            <div id="pressao" class="sensor-value">-- bar</div>
+            <div class="sensor-info">
+                <small>Limite crítico: 4.0 bar</small>
+            </div>
+        </section>
 
-    <footer>
-        <p>Desenvolvido por Kaneki © 2025</p>
-    </footer>
+        <!-- Seção de Válvulas -->
+        <section class="section">
+            <h2>🔧 Controle de Válvulas</h2>
+            <div class="valvulas-grid">
+                <button class="valvula-btn fechada" data-valvula="valvula1">
+                    Válvula 1: --
+                </button>
+                <button class="valvula-btn fechada" data-valvula="valvula2">
+                    Válvula 2: --
+                </button>
+                <button class="valvula-btn fechada" data-valvula="valvula3">
+                    Válvula 3: --
+                </button>
+            </div>
+        </section>
 
+        <!-- Seção de Controles -->
+        <section class="section">
+            <h2>⚙️ Controles do Sistema</h2>
+            <div class="controls">
+                <div class="control-group">
+                    <label for="interval-select">Intervalo de Atualização:</label>
+                    <select id="interval-select">
+                        <option value="1">1 segundo</option>
+                        <option value="3" selected>3 segundos</option>
+                        <option value="5">5 segundos</option>
+                        <option value="10">10 segundos</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <button id="refresh-btn">🔄 Atualizar Agora</button>
+                </div>
+                
+                <div class="control-group">
+                    <div class="loading-indicator" id="loading-indicator"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Gráficos -->
+        <section class="section" style="grid-column: 1 / -1;">
+            <h2>📊 Histórico de Dados</h2>
+            <div class="chart-container">
+                <canvas id="chart-canvas"></canvas>
+            </div>
+        </section>
+
+        <!-- Seção de Status -->
+        <section class="section" style="grid-column: 1 / -1;">
+            <h2>📡 Status do Sistema</h2>
+            <div class="status-bar">
+                <div>
+                    <span>Conexão: </span>
+                    <span id="connection-status" class="status online">Online</span>
+                </div>
+                <div id="last-update">
+                    Última atualização: --
+                </div>
+                <div>
+                    <span>Versão: 2.0.0</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+    <!-- Analytics e outros scripts podem ser adicionados aqui -->
+    <script>
+        // Configurações globais
+        window.USINA_CONFIG = {
+            updateInterval: 3000,
+            maxHistoryPoints: 50,
+            criticalTemp: 110,
+            criticalPressure: 4.0
+        };
+    </script>
 </body>
 </html>
+
